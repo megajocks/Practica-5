@@ -1,0 +1,75 @@
+
+package otravez;
+import java.util.Scanner;
+
+
+
+public class codigo {
+
+
+	private static boolean eulerMejorado(double valor_inicial_y, double valor_inicial_x, double altura_h, double maximo_intervalo) {
+		
+
+        double temp = -0;
+ 
+        while (valor_inicial_x < maximo_intervalo) {
+            temp = valor_inicial_y;
+            valor_inicial_y = valor_inicial_y + altura_h * func(valor_inicial_x, valor_inicial_y);
+            valor_inicial_x = valor_inicial_x + altura_h;
+        }
+ 
+        System.out.println("Solucion aporximada = " + maximo_intervalo + " es " + valor_inicial_y);
+
+
+		return false ;
+	}
+
+	 static double func(double x, double valor_inicial_y)
+    {
+        return (double)Math.log(x);
+    }
+
+	public static void main(String[] args) {
+		
+		 Scanner ObjLeer=new Scanner(System.in);
+
+
+		 int opcion=0;
+		 
+
+    	  System.out.printf("Bienvenido a la utp\n");
+    	  System.out.printf("Metodos numericos\n");
+    	  System.out.printf("Alumno 1: Camilo Jose Reigosa./ 4-815-1331\n");
+    	  System.out.printf("Profesor:  Andy Gomez     \n");
+
+    	    while (opcion != 7)
+    	     {
+    	     		   System.out.printf("\n-----------------------------------------");
+						System.out.printf("-----Programa------------------------------");
+						System.out.printf("\n1.Euler mejorado");
+						opcion=ObjLeer.nextInt();
+
+
+		switch (opcion) 
+		{
+		case 1:
+
+			 System.out.printf("\nValor inicial de Y:   ");
+		double valor_inicial_y = ObjLeer.nextDouble();
+		System.out.printf("\nValor inicial de X:    ");
+		double valor_inicial_x = ObjLeer.nextDouble();
+		System.out.printf("\nh:    ");
+		double altura_h = ObjLeer.nextDouble();
+		System.out.printf("\nMaximo del intervalo:    ");
+		double maximo_intervalo = ObjLeer.nextDouble();
+
+
+		System.out.println(eulerMejorado(valor_inicial_y,valor_inicial_x,altura_h,maximo_intervalo));
+			break;
+		}
+
+    	    }
+	}
+
+
+}
